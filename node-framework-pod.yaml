@@ -14,7 +14,7 @@ spec:
         app: selenium-hub
     spec:
       containers:
-      - name: selenium-hub
-        image: selenium/hub:2.53.0
+      - name: node-app
+        image: docker pull ecoronado/node-naf-app
         ports:
           - containerPort: 4444 
