@@ -3,7 +3,7 @@ kind: ReplicationController
 metadata:
   name: selenium-hub 
   labels:
-    app: automation-framework
+    app: NAF
 spec:
   replicas: 1
   selector:
@@ -11,11 +11,26 @@ spec:
   template:
     metadata:
       labels:
-        name: selenium-hub
-        app: automation-framework
+        app: selenium-hub
     spec:
       containers:
       - name: selenium-hub
-        image: selenium/hub
+        image: selenium/hub:2.53.0
         ports:
           - containerPort: 4444 
+        resources:
+          limits:
+            memory: "1000Mi"
+            cpu: ".5"
+        livenessProbe:
+          httpGet:
+            path: /grid/console
+            port: 4444
+          initialDelaySeconds: 30
+          timeoutSeconds: 5
+        readinessProbe:
+          httpGet:
+            path: /grid/console
+            port: 4444
+          initialDelaySeconds: 30
+          timeoutSeconds: 5
