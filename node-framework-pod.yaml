@@ -1,20 +1,12 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: node-app
+  name: node-app-pod
   labels:
     app: selenium-hub
 spec:
-  replicas: 1
-  selector:
-    app: selenium-hub
-  template:
-    metadata:
-      labels:
-        app: selenium-hub
-    spec:
-      containers:
-      - name: node-app
-        image: docker pull ecoronado/node-naf-app
-        ports:
-          - containerPort: 4444 
+  containers:
+    - name: node-app
+      image: ecoronado/node-naf-app
+      ports:
+        - containerPort: 4444 
