@@ -3,7 +3,8 @@ kind: Pod
 metadata:
   name: node-app-pod
   labels:
-    app: selenium-hub
+    name: node-app-pod
+    app: naf
 spec:
   containers:
     - name: node-app
