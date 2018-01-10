@@ -1,20 +1,13 @@
 apiVersion: v1
-kind: ReplicationController
+kind: Pod
 metadata:
-  name: selenium-hub 
+  name: selenium-hub
   labels:
-    app: NAF
+    name: selenium-hub
+    app: naf
 spec:
-  replicas: 1
-  selector:
-    app: selenium-hub
-  template:
-    metadata:
-      labels:
-        app: selenium-hub
-    spec:
-      containers:
-      - name: selenium-hub
-        image: selenium/hub:2.53.0
-        ports:
-          - containerPort: 4444 
+  containers:
+    - name: selenium-hub
+      image: selenium/hub:2.53.0
+      ports:
+        - containerPort: 4444 
