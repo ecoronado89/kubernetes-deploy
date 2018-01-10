@@ -11,5 +11,3 @@ spec:
     name: port0
   selector:
     app: automation-framework
-  type: NodePort
-  sessionAffinity: None

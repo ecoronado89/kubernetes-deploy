@@ -18,19 +18,3 @@ spec:
         image: selenium/hub:2.53.0
         ports:
           - containerPort: 4444 
-        resources:
-          limits:
-            memory: "1000Mi"
-            cpu: ".5"
-        livenessProbe:
-          httpGet:
-            path: /grid/console
-            port: 4444
-          initialDelaySeconds: 30
-          timeoutSeconds: 5
-        readinessProbe:
-          httpGet:
-            path: /grid/console
-            port: 4444
-          initialDelaySeconds: 30
-          timeoutSeconds: 5
