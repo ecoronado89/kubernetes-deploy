@@ -8,6 +8,6 @@ metadata:
 spec:
   containers:
     - name: node-app
-      image: ecoronado/node-naf-app
+      image: ecoronado/nodeapp-naf
       ports:
         - containerPort: 4444 
